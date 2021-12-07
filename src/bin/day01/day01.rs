@@ -43,7 +43,8 @@ fn ex2() -> Result<(), Error> {
     Ok(())
 }
 
-fn main()-> Result<(), Error> {
-    ex2()
+fn main(){
+    ex1().unwrap();
+    ex2().unwrap();
 }
 
