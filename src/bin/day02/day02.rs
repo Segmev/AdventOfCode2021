@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{ BufReader, BufRead, Error};
+use std::io::{BufRead, BufReader, Error};
 
 fn ex1() -> Result<(), Error> {
     let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day02/input.txt")?;
@@ -21,9 +21,7 @@ fn ex1() -> Result<(), Error> {
     }
     println!("{}", h_pos * depth);
     Ok(())
-
 }
-
 
 fn ex2() -> Result<(), Error> {
     let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day02/input.txt")?;
@@ -38,7 +36,10 @@ fn ex2() -> Result<(), Error> {
 
         let nb = entries[1].parse::<i32>().unwrap_or(0);
         match entries[0] {
-            "forward" => { h_pos += nb; depth += aim * nb; },
+            "forward" => {
+                h_pos += nb;
+                depth += aim * nb;
+            }
             "down" => aim += nb,
             "up" => aim -= nb,
             _ => println!("what?"),
@@ -46,9 +47,7 @@ fn ex2() -> Result<(), Error> {
     }
     println!("{}", h_pos * depth);
     Ok(())
-
 }
-
 
 fn main() {
     ex1().unwrap();

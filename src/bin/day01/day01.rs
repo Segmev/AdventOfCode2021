@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{ BufReader, BufRead, Error};
+use std::io::{BufRead, BufReader, Error};
 
 fn ex1() -> Result<(), Error> {
     let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day01/input.txt")?;
@@ -13,13 +13,10 @@ fn ex1() -> Result<(), Error> {
             count += 1;
         }
         prev_nb = nb;
-       
     }
     println!("{}", count);
     Ok(())
-
 }
-
 
 fn ex2() -> Result<(), Error> {
     let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day01/input.txt")?;
@@ -31,7 +28,7 @@ fn ex2() -> Result<(), Error> {
         let nb = line?.parse::<i32>().unwrap_or(0);
         if prev_nbs.len() >= 3 {
             let prev_sum: i32 = prev_nbs[0] + prev_nbs[1] + prev_nbs[2];
-            let actual_sum = nb +  prev_nbs[1] + prev_nbs[2];
+            let actual_sum = nb + prev_nbs[1] + prev_nbs[2];
             if prev_sum < actual_sum {
                 count += 1;
             }
@@ -43,8 +40,7 @@ fn ex2() -> Result<(), Error> {
     Ok(())
 }
 
-fn main(){
+fn main() {
     ex1().unwrap();
     ex2().unwrap();
 }
-

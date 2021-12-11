@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{ BufReader, BufRead, Error};
+use std::io::{BufRead, BufReader, Error};
 
 const BOUND: usize = 12;
 const BASE: u32 = 2;
@@ -17,7 +17,7 @@ fn ex1() -> Result<(), Error> {
         for n in 0..BOUND {
             match values[n] {
                 49 => counters[n] += 1,
-                _ => (), 
+                _ => (),
             }
         }
     }
@@ -36,32 +36,31 @@ fn ex1() -> Result<(), Error> {
     }
     println!("{}", epsilon * gamma);
     Ok(())
-
 }
 
 fn ex2() -> Result<(), Error> {
     let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day03/input.txt")?;
     let buffered = BufReader::new(input);
 
-    let mut bnums: Vec<[u32; BOUND]> = vec!();
+    let mut bnums: Vec<[u32; BOUND]> = vec![];
     for line in buffered.lines() {
         let mut counters: [u32; BOUND] = [0; BOUND];
         let values = line?.into_bytes();
         for n in 0..BOUND {
             match values[n] {
                 49 => counters[n] = 1,
-                _ => (), 
+                _ => (),
             }
         }
         bnums.push(counters);
     }
-    let mut oxygen_vec = bnums.clone(); 
+    let mut oxygen_vec = bnums.clone();
     for n in 0..BOUND {
         if oxygen_vec.len() == 1 {
             break;
         }
-        let mut zero_indexes: Vec<usize> = vec!(); 
-        let mut one_indexes: Vec<usize> = vec!(); 
+        let mut zero_indexes: Vec<usize> = vec![];
+        let mut one_indexes: Vec<usize> = vec![];
         for i in 0..oxygen_vec.len() {
             match oxygen_vec[i][n] {
                 0 => zero_indexes.push(i),
@@ -77,7 +76,6 @@ fn ex2() -> Result<(), Error> {
             for i in (0..one_indexes.len()).rev() {
                 oxygen_vec.remove(one_indexes[i]);
             }
-
         }
     }
 
@@ -86,8 +84,8 @@ fn ex2() -> Result<(), Error> {
         if co2_vec.len() == 1 {
             break;
         }
-        let mut zero_indexes: Vec<usize> = vec!(); 
-        let mut one_indexes: Vec<usize> = vec!(); 
+        let mut zero_indexes: Vec<usize> = vec![];
+        let mut one_indexes: Vec<usize> = vec![];
         for i in 0..co2_vec.len() {
             match co2_vec[i][n] {
                 0 => zero_indexes.push(i),
@@ -115,7 +113,6 @@ fn ex2() -> Result<(), Error> {
 
     println!("{}", oxy * co2);
     Ok(())
-
 }
 
 fn main() {

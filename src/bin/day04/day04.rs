@@ -1,6 +1,6 @@
-use std::fs::File;
-use std::io::{ BufReader, BufRead, Error};
 use regex::Regex;
+use std::fs::File;
+use std::io::{BufRead, BufReader, Error};
 
 const BOUND: usize = 12;
 const BASE: u32 = 2;
@@ -24,7 +24,7 @@ fn is_bingo(board: &Vec<Vec<(i32, bool)>>) -> bool {
             }
         }
         if count_marked == 5 {
-            return true
+            return true;
         }
     }
     for i in 0..5 {
@@ -35,14 +35,14 @@ fn is_bingo(board: &Vec<Vec<(i32, bool)>>) -> bool {
             }
         }
         if count_marked == 5 {
-            return true
+            return true;
         }
     }
 
     false
 }
 
-fn calculate_unmarked_numbers(board: &Vec<Vec<(i32, bool)>>) -> i32{
+fn calculate_unmarked_numbers(board: &Vec<Vec<(i32, bool)>>) -> i32 {
     let mut acc = 0;
     for i in 0..5 {
         for j in 0..5 {
@@ -61,26 +61,32 @@ fn ex1() -> Result<(), Error> {
 
     let mut lines_cursor = buffered.lines();
     let first_line = lines_cursor.next().unwrap().unwrap();
-    let values = first_line.split(',').map(|value| value.parse::<i32>()).collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>().unwrap();
+    let values = first_line
+        .split(',')
+        .map(|value| value.parse::<i32>())
+        .collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>()
+        .unwrap();
     println!("{:?}", values);
 
-    let mut boards: Vec<Vec<Vec<(i32,bool)>>> = vec!();
-    
+    let mut boards: Vec<Vec<Vec<(i32, bool)>>> = vec![];
+
     loop {
         match lines_cursor.next() {
             Some(_) => {
-                let mut board: Vec<Vec<(i32,bool)>> = vec!();
+                let mut board: Vec<Vec<(i32, bool)>> = vec![];
                 for _ in 0..5 {
-                    let number_line = re.replace_all(lines_cursor.next().unwrap().unwrap().trim(), " ").into_owned();
+                    let number_line = re
+                        .replace_all(lines_cursor.next().unwrap().unwrap().trim(), " ")
+                        .into_owned();
                     let r: Vec<i32> = number_line
                         .split(" ")
                         .map(|value| value.parse::<i32>())
                         .collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>()
                         .unwrap();
                     board.push(r.iter().cloned().map(|value| (value, false)).collect());
-                };
+                }
                 boards.push(board);
-            },
+            }
             None => break,
         }
     }
@@ -88,10 +94,13 @@ fn ex1() -> Result<(), Error> {
         for i in 0..boards.len() {
             update_board(&mut boards[i], number);
             if is_bingo(&boards[i]) {
-                println!("Bingo ! {:?}", number * calculate_unmarked_numbers(&boards[i]));
+                println!(
+                    "Bingo ! {:?}",
+                    number * calculate_unmarked_numbers(&boards[i])
+                );
                 return Ok(());
             }
-        } 
+        }
     }
     Ok(())
 }
@@ -103,42 +112,50 @@ fn ex2() -> Result<(), Error> {
 
     let mut lines_cursor = buffered.lines();
     let first_line = lines_cursor.next().unwrap().unwrap();
-    let values = first_line.split(',').map(|value| value.parse::<i32>()).collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>().unwrap();
+    let values = first_line
+        .split(',')
+        .map(|value| value.parse::<i32>())
+        .collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>()
+        .unwrap();
     println!("{:?}", values);
 
-    let mut boards: Vec<Vec<Vec<(i32,bool)>>> = vec!();
-    
+    let mut boards: Vec<Vec<Vec<(i32, bool)>>> = vec![];
+
     loop {
         match lines_cursor.next() {
             Some(_) => {
-                let mut board: Vec<Vec<(i32,bool)>> = vec!();
+                let mut board: Vec<Vec<(i32, bool)>> = vec![];
                 for _ in 0..5 {
-                    let number_line = re.replace_all(lines_cursor.next().unwrap().unwrap().trim(), " ").into_owned();
+                    let number_line = re
+                        .replace_all(lines_cursor.next().unwrap().unwrap().trim(), " ")
+                        .into_owned();
                     let r: Vec<i32> = number_line
                         .split(" ")
                         .map(|value| value.parse::<i32>())
                         .collect::<Result<Vec<i32>, <i32 as std::str::FromStr>::Err>>()
                         .unwrap();
                     board.push(r.iter().cloned().map(|value| (value, false)).collect());
-                };
+                }
                 boards.push(board);
-            },
+            }
             None => break,
         }
     }
-    let mut winning_boards: Vec<usize> = vec!();
+    let mut winning_boards: Vec<usize> = vec![];
     for number in values {
         for i in 0..boards.len() {
             update_board(&mut boards[i], number);
             if !(winning_boards.contains(&i)) && is_bingo(&boards[i]) {
-                println!("Bingo ! {:?}", number * calculate_unmarked_numbers(&boards[i]));
+                println!(
+                    "Bingo ! {:?}",
+                    number * calculate_unmarked_numbers(&boards[i])
+                );
                 winning_boards.push(i);
             }
-        } 
+        }
     }
     Ok(())
 }
-
 
 fn main() {
     ex2().unwrap();
