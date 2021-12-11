@@ -2,9 +2,6 @@ use regex::Regex;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error};
 
-const BOUND: usize = 12;
-const BASE: u32 = 2;
-
 fn update_board(board: &mut Vec<Vec<(i32, bool)>>, number: i32) {
     for i in 0..5 {
         for j in 0..5 {
@@ -158,5 +155,6 @@ fn ex2() -> Result<(), Error> {
 }
 
 fn main() {
+    ex1().unwrap();
     ex2().unwrap();
 }
