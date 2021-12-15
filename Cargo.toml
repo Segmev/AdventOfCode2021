@@ -49,5 +49,10 @@ name="day09"
 path="src/bin/day09/main.rs"
 
 
+[[bin]]
+name="day10"
+path="src/bin/day10/main.rs"
+
+
 
 
