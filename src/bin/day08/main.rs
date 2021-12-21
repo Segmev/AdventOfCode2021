@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, Error};
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day08/input.txt")?;
+    let input = File::open("./src/bin/day08/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut count = 0;
@@ -76,7 +76,7 @@ fn match_sign(sign_map: &HashMap<usize, Vec<char>>, signal: String) -> i32 {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day08/input.txt")?;
+    let input = File::open("./src/bin/day08/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut sum = 0;

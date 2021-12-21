@@ -53,7 +53,7 @@ fn calculate_unmarked_numbers(board: &Vec<Vec<(i32, bool)>>) -> i32 {
 
 fn ex1() -> Result<(), Error> {
     let re = Regex::new(r"\s+").unwrap();
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day04/input.txt")?;
+    let input = File::open("./src/bin/day04/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut lines_cursor = buffered.lines();
@@ -104,7 +104,7 @@ fn ex1() -> Result<(), Error> {
 
 fn ex2() -> Result<(), Error> {
     let re = Regex::new(r"\s+").unwrap();
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day04/input.txt")?;
+    let input = File::open("./src/bin/day04/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut lines_cursor = buffered.lines();

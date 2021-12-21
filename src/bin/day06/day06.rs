@@ -3,7 +3,7 @@ use std::io::{BufRead, BufReader, Error};
 
 fn ex1() -> Result<(), Error> {
     const PERIOD: u16 = 80;
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day06/input.txt")?;
+    let input = File::open("./src/bin/day06/input.txt")?;
     let buffered = BufReader::new(input);
     // let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
     let mut lines_cursor = buffered.lines();
@@ -32,7 +32,7 @@ fn ex1() -> Result<(), Error> {
 
 fn ex2() -> Result<(), Error> {
     const PERIOD: u16 = 256;
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day06/input.txt")?;
+    let input = File::open("./src/bin/day06/input.txt")?;
     let buffered = BufReader::new(input);
     // let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
     let mut lines_cursor = buffered.lines();

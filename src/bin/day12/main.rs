@@ -12,7 +12,7 @@ struct Node {
 
 fn ex1() -> Result<(), Error> {
     let mut network = HashMap::new();
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day12/input.txt")?;
+    let input = File::open("./src/bin/day12/input.txt")?;
     let buffered = BufReader::new(input);
     for line in buffered.lines() {
         let values = line?;
@@ -78,7 +78,7 @@ fn crawl_no_time(
 
 fn ex2() -> Result<(), Error> {
     let mut network = HashMap::new();
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day12/input.txt")?;
+    let input = File::open("./src/bin/day12/input.txt")?;
     let buffered = BufReader::new(input);
     for line in buffered.lines() {
         let values = line?;

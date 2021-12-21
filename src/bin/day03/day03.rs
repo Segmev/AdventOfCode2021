@@ -5,7 +5,7 @@ const BOUND: usize = 12;
 const BASE: u32 = 2;
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day03/input.txt")?;
+    let input = File::open("./src/bin/day03/input.txt")?;
     let buffered = BufReader::new(input);
     let mut line_counter = 0;
 
@@ -39,7 +39,7 @@ fn ex1() -> Result<(), Error> {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day03/input.txt")?;
+    let input = File::open("./src/bin/day03/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut bnums: Vec<[u32; BOUND]> = vec![];

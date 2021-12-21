@@ -68,7 +68,7 @@ fn print_state(m: &[[u32; BOUND]; BOUND], print_map: bool) {
 }
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day05/input.txt")?;
+    let input = File::open("./src/bin/day05/input.txt")?;
     let buffered = BufReader::new(input);
     let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
 
@@ -96,7 +96,7 @@ fn ex1() -> Result<(), Error> {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day05/input.txt")?;
+    let input = File::open("./src/bin/day05/input.txt")?;
     let buffered = BufReader::new(input);
     let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
 

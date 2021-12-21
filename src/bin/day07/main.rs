@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, Error};
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day07/input.txt")?;
+    let input = File::open("./src/bin/day07/input.txt")?;
     let buffered = BufReader::new(input);
     // let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
     let mut lines_cursor = buffered.lines();
@@ -32,7 +32,7 @@ fn average(numbers: &Vec<i32>) -> i32 {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day07/input.txt")?;
+    let input = File::open("./src/bin/day07/input.txt")?;
     let buffered = BufReader::new(input);
     // let mut m: [[u32; BOUND]; BOUND] = [[0; BOUND]; BOUND];
     let mut lines_cursor = buffered.lines();

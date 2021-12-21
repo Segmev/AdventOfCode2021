@@ -29,7 +29,7 @@ fn eval_line(dic: &HashMap<char, u32>, line: &str) -> u32 {
 }
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day10/input.txt")?;
+    let input = File::open("./src/bin/day10/input.txt")?;
     let buffered = BufReader::new(input);
     let mut dic: HashMap<char, u32> = HashMap::new();
     dic.insert(')', 3);
@@ -48,7 +48,7 @@ fn ex1() -> Result<(), Error> {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day10/input.txt")?;
+    let input = File::open("./src/bin/day10/input.txt")?;
     let buffered = BufReader::new(input);
     let mut dic: HashMap<char, u32> = HashMap::new();
     dic.insert(')', 3);

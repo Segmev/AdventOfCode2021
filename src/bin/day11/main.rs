@@ -5,7 +5,7 @@ use std::io::{BufRead, BufReader, Error};
 const BOUND: usize = 10;
 
 fn ex1() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day11/input.txt")?;
+    let input = File::open("./src/bin/day11/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut cavern: Vec<Vec<u8>> = vec![];
@@ -55,7 +55,7 @@ fn ex1() -> Result<(), Error> {
 }
 
 fn ex2() -> Result<(), Error> {
-    let input = File::open("/home/skarraz/Projects/AdventOfCode2021/src/bin/day11/input.txt")?;
+    let input = File::open("./src/bin/day11/input.txt")?;
     let buffered = BufReader::new(input);
 
     let mut cavern: Vec<Vec<u8>> = vec![];
